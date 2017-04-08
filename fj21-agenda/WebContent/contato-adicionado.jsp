@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Testando seus parâmetros:<br />
-A idade é ${param.idade}.<br />
+Contato ${param.nome} adicionado com sucesso!
 </body>
 </html>
