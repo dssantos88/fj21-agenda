@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.mvc.logica.Logica;
 
-@WebServlet("/ControllerServlet")
+@WebServlet("/mvc")
 public class ControllerServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -10,13 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="cabecalho.jsp" />
+	<c:import url="cabecalho.jsp" />
 	<!-- cria o DAO -->
-	<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />
 
 	<table border="1">
 		<!-- percorre contatos montando as linhas da tabela -->
-		<c:forEach var="contato" items="${dao.lista}" varStatus="id">
+
+		<c:forEach var="contato" items="${contatos}" varStatus="id">
 			<tr bgcolor="${id.count % 2 == 0 ? 'aaee88' : 'ffff88'}">
 				<td>${id.count}</td>
 				<td>${contato.nome}</td>
@@ -24,12 +24,17 @@
 						<a href="mailto:${contato.email}">${contato.email}</a>
 					</c:if></td>
 				<td>${contato.endereco}</td>
-				<td><fmt:formatDate value="${contato.dataNascimento}"
-				pattern="dd/MM/yyyy" /></td>
+				<td><fmt:formatDate value="${contato.dataNascimento.time}"
+						pattern="dd/MM/yyyy" /></td>
+
+				<td><a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+				<td><a href="mvc?logica=AlteraContatoLogic&id=${contato.id}">Alterar</a>
+				</td>
 			<tr>
 		</c:forEach>
+
 	</table>
 
-<c:import url="rodape.jsp" />
+	<c:import url="rodape.jsp" />
 </body>
 </html>
